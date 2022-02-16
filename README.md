@@ -12,10 +12,11 @@ Los objetivos de la primera entrega se concentraran en los que he visto en la cl
 
 **Arreglos multidimensionales:** Estructura de arreglos multidimensionales que contenga el usuario y su numero de acceso. 
 
-**Structs:** El usuario tendrá las siguientes funcionalidades para la primera entrega:
+**Structs:** Estructuras que contenga la información de los conciertos disponibles (artistas, capacidad máxima, áreas, precios, fecha, etc.)
+
+**Funcionalidades**
+El usuario tendrá las siguientes funcionalidades para la primera entrega:
 - Ver los conciertos disponibles y su respectiva información 
 - Ver las promotoras de los conciertos y sus promociones
 - Seleccionar el área que el usuario desea comprar
 - Cancelar la entrada
-
-
