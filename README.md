@@ -14,7 +14,7 @@ Los objetivos de la primera entrega se concentraran en los que he visto en la cl
 
 **Structs:** Estructuras que contenga la información de los conciertos disponibles (artistas, capacidad máxima, áreas, precios, fecha, etc.)
 
-**Funcionalidades**
+**Funcionalidades:**
 El usuario tendrá las siguientes funcionalidades para la primera entrega:
 - Ver los conciertos disponibles y su respectiva información 
 - Ver las promotoras de los conciertos y sus promociones
