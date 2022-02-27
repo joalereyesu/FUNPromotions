@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  color: #fbf8f1;
+}
+
+li,
+a,
+button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fbf8f1;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px 5%;
+  background-color: #1a1a40;
+}
+
+.logo {
+  cursor: pointer;
+  width: 10%;
+  margin-right: auto;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li,
+a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav_links li,
+a:hover {
+  color: #ffadf0;
+}
+
+button {
+  padding: 9px 25px;
+  background-color: #fbf8f1;
+  color: #1a1a40;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: #ffadf0;
+  color: #fbf8f1;
+}
+
+.landing_cover {
+  display: flex;
+  background: url("https://images.wallpaperscraft.com/image/single/concert_performance_light_organ_137789_3840x2160.jpg");
+  background-size: cover;
+}
+
+.login_container {
+  margin-top: 6%;
+  margin-bottom: 6%;
+  width: 500px;
+  height: 650px;
+  padding: 10px;
+
+  background-color: #10101b;
+  border-radius: 5%;
+  margin-left: 30px;
+  box-shadow: 3px 3px 20px 20px rgb(0 0 0 / 20%);
+}
+
+.logo_container {
+  width: 100%;
+  height: 20%;
+  display: inline-block;
+}
+
+.login_logo {
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login_forms {
+  display: inline-block;
+  width: 100%;
+}
