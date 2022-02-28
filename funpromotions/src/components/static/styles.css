@@ -15,6 +15,8 @@ h1 {
 
 li,
 a,
+label,
+p,
 button {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -71,6 +73,12 @@ button:hover {
   color: #fbf8f1;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .landing_cover {
   display: flex;
   background: url("https://images.wallpaperscraft.com/image/single/concert_performance_light_organ_137789_3840x2160.jpg");
@@ -82,8 +90,7 @@ button:hover {
   margin-bottom: 6%;
   width: 500px;
   height: 650px;
-  padding: 10px;
-
+  padding: 15px;
   background-color: #10101b;
   border-radius: 5%;
   margin-left: 30px;
@@ -100,12 +107,81 @@ button:hover {
   cursor: pointer;
   text-align: center;
   display: flex;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signup_logo {
+  cursor: pointer;
+  text-align: center;
+  display: flex;
   width: 30%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .login_forms {
+  margin-top: 55px;
+  padding: 10px 5px 10px 5px;
   display: inline-block;
   width: 100%;
+}
+
+.signup_forms {
+  padding: 10px 5px 10px 5px;
+  display: inline-block;
+  width: 100%;
+}
+
+.form-group {
+  padding-top: 10px;
+  margin-bottom: 1em;
+  transition: all 0.3s;
+}
+
+.form-label {
+  display: block;
+  opacity: 2;
+  transform: translateY(-1.25em);
+  transform-origin: 0 0;
+  transition: all 0.3s;
+}
+
+.form-control {
+  box-shadow: none;
+  background-color: #10101b;
+  border-radius: 0px;
+  border-color: #fbf8f1;
+  border-style: none none solid none;
+  width: 100%;
+  transition: all 0.5s;
+  padding: 5px;
+  color: #fbf8f1;
+}
+
+.form-control::placeholder {
+  color: transparent;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #ffadf0;
+}
+
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  color: #ffadf0;
+  transform: translateY(-2.35em) scale(0.8);
+}
+
+.form-group:focus-within {
+  transform: scale(1.05, 1.05);
+}
+
+.p_container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
 }
