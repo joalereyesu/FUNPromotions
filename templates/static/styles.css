@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&family=Varela+Round&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,22 +6,27 @@
   padding: 0;
 }
 
-h1 {
+body {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+}
+
+.h_enter {
+  font-weight: 500;
   font-size: 34px;
+  color: #fbf8f1;
+}
+
+.p_enter {
+  font-size: 16px;
   color: #fbf8f1;
 }
 
 li,
 a,
-label,
-p,
-button {
+label{
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 16px;
-  color: #fbf8f1;
   text-decoration: none;
 }
 
@@ -31,6 +36,7 @@ header {
   align-items: center;
   padding: 5px 5%;
   background-color: #1a1a40;
+  position: fixed;
 }
 
 .logo {
@@ -50,7 +56,12 @@ header {
 
 .nav_links li,
 a {
+  color: #fbf8f1;
   transition: all 0.3s ease 0s;
+}
+
+.active {
+  color: #ffadf0;
 }
 
 .nav_links li,
@@ -58,7 +69,7 @@ a:hover {
   color: #ffadf0;
 }
 
-button {
+.btn_register {
   padding: 9px 25px;
   background-color: #fbf8f1;
   color: #1a1a40;
@@ -66,9 +77,11 @@ button {
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
+  font-weight: 500;
+  font-size: 16px;
 }
 
-button:hover {
+.btn_register:hover {
   background-color: #ffadf0;
   color: #fbf8f1;
 }
@@ -185,3 +198,87 @@ button:hover {
   margin-bottom: 25px;
   text-align: center;
 }
+
+.hp_cover{
+  background: url('https://cdn.theatlantic.com/thumbor/YnaH69mcNu7NYWTEefOrSuN6nCo=/0x435:4814x3143/1600x900/media/img/mt/2020/05/h_00000219852977_1/original.jpg');
+}
+
+.cover_container{
+  padding: 80px 50px 80px 50px;
+  text-align: center;
+  font-size: 700;
+  color: #fbf8f1;
+}
+
+.hp_heading {
+  margin-top: 9%;
+  font-size: 84px;
+}
+
+.sp_heading {
+  color: #ffadf0;
+  font-weight: 900;
+  font-size: 150px;
+  text-shadow: 3px 3px #1a1a40;
+}
+
+.hp_p{
+  font-size: 24px;
+  font-weight: 500;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.btn_container{
+  margin-top: 50px;
+  padding: 20px 35px;
+  background-color: #ffadf0;
+  color: #1a1a40;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  font-weight: 500;
+  font-size: 16px;
+  box-shadow: 3px 3px 20px 20px rgb(0 0 0 / 20%);
+}
+
+.btn_container:hover{
+  background-color: #fbf8f1;
+  color: #1a1a40;
+}
+
+.hp_experience_card {
+  margin: 20px 10px 20px 10px;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.hp_experience_card{
+  margin: 20px 10px 20px 10px;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.hp_experience_card h2 {
+  font-size: 48px;
+  font-size: 500;
+  color: #1a1a40;
+  text-shadow: 3px 3px #ffadf0;
+}
+
+.hp_experience_card p {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.hp_footer{
+  width: 100%;
+  background-color: #1a1a40;
+}
+
+

@@ -10,7 +10,7 @@ environment = Environment(loader=templates)
 
 app = Flask(__name__)
 
-app.static_folder = './templates/static'
+app.static_folder = '/templates/static'
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -34,8 +34,12 @@ def createAccount():
 
 @app.route('/<username>', methods=["GET", "POST"])
 def homePage(username):
-    print(username)
     return render_template('homePage.html')
+
+
+@app.route('/<username>/concerts', methods=["GET"])
+def concerts(username):
+    return render_template('concertsPage.html')
 
 
 if __name__ == "__main__":
