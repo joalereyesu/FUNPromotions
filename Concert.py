@@ -1,13 +1,13 @@
 class Concert:
 
-    def __init__(self, lineup, capacity, price, areas, date, place, promo):
+    def __init__(self, lineup, capacity, price, areas, date, time, place):
         self.lineup = lineup
         self.capacity = capacity
         self.price = price
         self.areas = areas
         self.date = date
+        self.time = time
         self.place = place
-        self.promo = promo
 
     def getLineup(self):
         return self.lineup
@@ -22,6 +22,9 @@ class Concert:
         return self.areas
 
     def getDate(self):
+        return self.date
+
+    def getTime(self):
         return self.date
 
     def getPlace(self):

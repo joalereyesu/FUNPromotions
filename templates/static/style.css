@@ -159,6 +159,7 @@ a:hover {
   transform: translateY(-1.25em);
   transform-origin: 0 0;
   transition: all 0.3s;
+  color: #fbf8f1;
 }
 
 .form-control {
@@ -239,7 +240,7 @@ a:hover {
   cursor: pointer;
   transition: all 0.3s ease 0s;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   box-shadow: 3px 3px 20px 20px rgb(0 0 0 / 20%);
 }
 
@@ -280,5 +281,6 @@ a:hover {
   width: 100%;
   background-color: #1a1a40;
 }
+
 
 
