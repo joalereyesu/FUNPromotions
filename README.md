@@ -5,18 +5,19 @@ El objetivo de este proyecto es crear una pagina en donde los usuarios podrán c
 Los objetivos de la primera entrega se concentraran en los que he visto en la clase de estructuras de datos.
 
 **Arreglos unidimensionales:** Estructuras de arreglos unidimensionales que contenga:
-- Asientos disponibles
 - Conciertos del año
-- Los artistas que participaran en el concierto
-- Las áreas disponibles en cada concierto
+- Las fecha y hora de cada concierto
+- Si capacidad 
+- Lugares en donde se llevara a cabo cada uno
 
-**Arreglos multidimensionales:** Estructura de arreglos multidimensionales que contenga el usuario y su numero de acceso. 
+**Arreglos multidimensionales:** Estructura de arreglos multidimensionales que contenga:
+- Los artistas que participaran en el concierto (lineup)
+- Las áreas disponibles en cada concierto con su respectivo precio
 
-**Structs:** Estructuras que contenga la información de los conciertos disponibles (artistas, capacidad máxima, áreas, precios, fecha, etc.)
+**Structs:** Estructuras que contenga la información del usuario a la hora de ingresar a la pagina (nombre, apellido, correo, usuario, contraseña.)
 
 **Funcionalidades:**
 El usuario tendrá las siguientes funcionalidades para la primera entrega:
+- Crear una cuenta en la pagina principal (Sign Up)
 - Ver los conciertos disponibles y su respectiva información 
-- Ver las promotoras de los conciertos y sus promociones
-- Seleccionar el área que el usuario desea comprar
-- Cancelar la entrada
+- Ver las áreas disponibles

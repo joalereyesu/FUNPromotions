@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>FUNPromotions</title>
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js"></script>
 </head>
 
-<body>
+<body onload="getConcertsMainData()">
     <header>
-        <img src='./static/FUN_white.png' class='logo' alt='logo' />
+        <img src='/static/FUN_white.png' class='logo' alt='logo' />
         <nav>
             <ul class='nav_links'>
                 <li><a class='active' key='concerts' href='/concerts'>Concerts</a></li>
@@ -20,6 +21,11 @@
         </nav>
         <a href='/buy_tickets'><button class='btn_register'>Buy tickets</button></a>
     </header>
+    <div id='concerts' class="div_all_concerts">
+        <div>
+            <h1>Check out this year events!</h1>
+        </div>
+    </div>
 </body>
 
 </html>
