@@ -366,9 +366,119 @@ a:hover {
 }
 
 .btn_concert:hover{
-  background-color: #ffadf0;
+  background-color: #1a1a40;
   color: #fbf8f1;
 }
+
+.event_container {
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.h_event {
+  padding: 10px;
+  font-size: 112px;
+  font-weight: 900;
+  text-align: center;
+  color:#fbf8f1;
+  text-shadow: 3px 3px #7c0466;
+}
+
+.date_event {
+  margin: 20px;
+  text-align: center;
+  color: #7c0466;
+  font-size: 32px;
+}
+
+.lineup_event {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-flex;
+  list-style: none;
+  width: 90%;
+  color: #1a1a40;
+  font-style: italic;
+  justify-content: center;
+}
+
+.lineup_event li {
+  font-weight: 900;
+  padding: 10px;
+  font-size: 28px;
+} 
+
+.lineup_event:hover {
+  text-shadow: 2px 2px #fbf8f1;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.division{
+  width: 10%;
+  background-color: #fbf8f1;
+  height: 1%;
+  border-radius: 5px;
+  margin:auto;
+}
+
+.p_event {
+  margin: 20px;
+  font-size: 22px;
+  color: #1a1a40;
+}
+
+.wrap {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.formulario .radio label {
+  font-size: 20px;
+  margin: 10px;
+  background-color: #fbf8f1;
+  display: inline-block;
+  cursor: pointer;
+  color: #1a1a40;
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease; 
+}
+
+.formulario .radio label:hover {
+  color: #7c0466;
+}
+
+.formulario input[type="radio"] {
+  display: none; 
+}
+.formulario input[type="radio"]:checked + label:before {
+  display: none; 
+}
+.formulario input[type="radio"]:checked + label {
+  padding: 10px 15px;
+  background: #1a1a40;
+  border-radius: 0px;
+  color: #fbf8f1; 
+  transition: all 0.3s ease;
+}
+
+.price_event{
+  font-size: 30px;
+  font-weight: 900;
+  color: #1a1a40;
+  text-shadow: 2px 2px #fbf8f1;
+  margin: 20px;
+}
+
+
+
 
 
 

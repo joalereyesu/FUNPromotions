@@ -13,13 +13,13 @@
         <img src='/static/FUN_white.png' class='logo' alt='logo' />
         <nav>
             <ul class='nav_links'>
-                <li><a class='active' key='concerts' href='/concerts'>Concerts</a></li>
-                <li><a key='experience' href='/experience'>Experience</a></li>
-                <li><a key='profile' href='/profile'>Profile</a></li>
-                <li><a key='aboutUs' href='/about_us'>About us</a></li>
+                <li><a class='active' key='events' href='/{{username}}/events'>Events</a></li>
+                <li><a key='experience' href='/{{username}}/experience'>Experience</a></li>
+                <li><a key='profile' href='/{{username}}/profile'>Profile</a></li>
+                <li><a key='aboutUs' href='/{{username}}/about_us'>About us</a></li>
             </ul>
         </nav>
-        <a href='/buy_tickets'><button class='btn_register'>Buy tickets</button></a>
+        <a href='{{username}}/buy_tickets'><button class='btn_register'>Buy tickets</button></a>
     </header>
     <div id='concerts' class="div_all_concerts">
         <div>

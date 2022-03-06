@@ -37,9 +37,15 @@ def homePage(username):
     return render_template('homePage.html', username=username)
 
 
-@app.route('/<username>/concerts', methods=["GET"])
+@app.route('/<username>/events', methods=["GET"])
 def concerts(username):
     return render_template('concertsPage.html', username=username)
+
+
+@app.route('/<username>/<id>', methods=["GET"])
+def event(username, id):
+    print(type(id))
+    return render_template('event.html', username=username, id=int(id))
 
 
 if __name__ == "__main__":
