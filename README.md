@@ -29,8 +29,8 @@ El usuario tendrá las siguientes funcionalidades para la primera entrega:
 - Informacion de cada evento
 
 **Diseño:**
-Para el diseño de la pagia se utilizo HTML y CSS. 
+Para el diseño de la pagina se utilizo HTML y CSS. 
 
 **Testeo:**
-- Unit test para comprobar el funcionamiento de las funciones que acompaña la clase de usuario
+- Unit tests para comprobar el funcionamiento de las funciones que acompaña la clase de usuario
 - Postman para comprobar los request methods del API
