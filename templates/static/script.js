@@ -16,7 +16,7 @@ concertsData = {
     'places': ['Puerto San Jose', 'Finca Gutierres', 'Finca Jocotillo']
 };
 
-backgroundStyle = ['linear-gradient(to right, #ffadf0, rgb(251, 251, 103))', 'linear-gradient(to right, #b9ffad, rgb(103, 113, 251))', 'linear-gradient(to right, #f19448, rgb(169, 251, 103))'];
+backgroundStyle = ['linear-gradient(to right, #ffadf0, rgb(251, 251, 103))', 'linear-gradient(to right, #b9ffad, rgb(103, 113, 251))', 'linear-gradient(to right, #f19448, rgb(169, 251, 103))', 'background-image: linear-gradient(to right, #fc7e7e, rgb(133, 240, 133));'];
 
 
 
@@ -65,6 +65,7 @@ function getSelectedConcertData(index) {
     const locations = concertsData.locations[index];
     const lineup = concertsData.lineups[index];
     let event_div = document.getElementById('event');
+    event_div.setAttribute('value', index);
     event_div.style.backgroundImage = backgroundStyle[index];
     let event_h = document.createElement('h1');
     event_h.classList.add('h_event');
@@ -112,7 +113,7 @@ function getSelectedConcertData(index) {
         loc_input.setAttribute('name', 'locations');
         loc_input.setAttribute('value', locations[j]);
         loc_input.setAttribute('id', locations[j]);
-        loc_input.setAttribute('onclick', "showPrice(index)");
+        loc_input.setAttribute('onclick', "showPrice()");
         div_locations.appendChild(loc_input);
         let loc_label = document.createElement('label');
         loc_label.setAttribute('for', locations[j]);
@@ -122,4 +123,94 @@ function getSelectedConcertData(index) {
     forms.appendChild(div_locations);
     div_forms.appendChild(forms);
     event_div.appendChild(div_forms);
+}
+
+function showPrice() {
+    let container = document.getElementById('event');
+    let index = container.getAttribute('value');
+    console.log(index);
+    let choice = document.getElementsByTagName('input');
+    for (let i = 0; i < choice.length; i++) {
+        if (choice[i].checked) {
+            var val = choice[i].value;
+            var index2 = concertsData.locations[index].indexOf(val)
+            console.log(index2)
+        }
+    }
+    if (document.getElementById('price_container')) {
+        let price_container = document.getElementById('price_container');
+        price_container.remove();
+    }
+
+    let show_container = document.createElement('div');
+    show_container.setAttribute('id', 'price_container');
+    let price = document.createElement('p');
+    price.innerHTML = 'PRICE: Q.' + concertsData.prices[index][index2];
+    price.classList.add('price_event');
+    show_container.appendChild(price);
+    let div = document.createElement('div');
+    div.classList.add('center');
+    let btn = document.createElement('button');
+    btn.classList.add('btn_concert');
+    btn.innerHTML = 'Buy now';
+    div.appendChild(btn);
+    show_container.appendChild(div);
+    container.appendChild(show_container);
+}
+
+
+function getNumberofInputsLineUp() {
+    let numberPerformers = document.getElementById('Nperformers').value;
+    let lineup_div = document.getElementById('lineup');
+    let lineup_input = document.createElement('input');
+    lineup_input.setAttribute('type', 'text');
+    lineup_input.setAttribute('id', 'performer');
+    let linup_label = document.createElement('label');
+    linup_label.innerHTML = 'Performer ' + numberPerformers;
+    linup_label.appendChild(lineup_input);
+    lineup_div.appendChild(linup_label);
+}
+
+function getNumberofInputsLoc() {
+    let numberLocation = document.getElementById('NLoc').value;
+    let loc_div = document.getElementById('loc');
+    let loc_input = document.createElement('input');
+    let price_input = document.createElement('input');
+    loc_input.setAttribute('type', 'text');
+    price_input.setAttribute('type', 'text');
+    loc_input.setAttribute('id', 'location');
+    price_input.setAttribute('id', 'price');
+    let loc_label = document.createElement('label');
+    let price_label = document.createElement('label');
+    loc_label.innerHTML = 'Location ' + numberLocation;
+    price_label.innerHTML = 'Price ' + numberLocation;
+    loc_label.appendChild(loc_input);
+    price_label.appendChild(price_input);
+    loc_div.appendChild(loc_label);
+    loc_div.appendChild(price_label);
+}
+
+function setNewConcert() {
+    let newLineup = [];
+    let newLocs = [];
+    let newPrices = [];
+    let choice = document.getElementsByTagName('input');
+    concertsData.names.push(choice[0].value);
+    concertsData.dates.push(choice[1].value);
+    concertsData.times.push(choice[2].value);
+    for (let i = 0; i < choice.length; i++) {
+        if (choice[i].id == 'performer') {
+            newLineup.push(choice[i].value);
+        };
+        if (choice[i].id == 'location') {
+            newLocs.push(choice[i].value);
+        }
+        if (choice[i].id == 'price') {
+            newPrices.push(choice[i].value);
+        }
+    };
+    concertsData.lineups.push(newLineup);
+    concertsData.locations.push(newLocs);
+    concertsData.prices.push(newPrices);
+    console.log(concertsData);
 }

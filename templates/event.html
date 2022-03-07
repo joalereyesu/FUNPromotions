@@ -5,77 +5,12 @@
     <meta charset="UTF-8">
     <title>FUNPromotions</title>
     <link rel="stylesheet" href="/static/style.css">
-    <script src="/static/script.js">
-        var index = ' {{ id }} ';
-        function showPrice() {
-            console.log(index);
-            let choice = document.getElementsByTagName('input');
-            for (let i = 0; i < choice.length; i++) {
-                if (choice[i].checked) {
-                    var val = choice[i].value;
-                    var index2 = concertsData.locations[index].indexOf(val)
-                    console.log(index2)
-                }
-            }
-            if (document.getElementById('price_container')) {
-                let price_container = document.getElementById('price_container');
-                price_container.remove();
-            }
-
-            let container = document.getElementById('event');
-            let show_container = document.createElement('div');
-            show_container.setAttribute('id', 'price_container');
-            let price = document.createElement('p');
-            price.innerHTML = 'PRICE: Q.' + concertsData.prices[index][index2];
-            price.classList.add('price_event');
-            show_container.appendChild(price);
-            let div = document.createElement('div');
-            div.classList.add('center');
-            let btn = document.createElement('button');
-            btn.classList.add('btn_concert');
-            btn.innerHTML = 'Buy now';
-            div.appendChild(btn);
-            show_container.appendChild(div);
-            container.appendChild(show_container);
-        }
-    </script>
+    <script src="/static/script.js"></script>
 </head>
 
 <body onload="getSelectedConcertData('{{id}}')">
     <div id='event' class="event_container">
-        <!-- <h1 class="h_event">HOLY SUMMER</h1>
-        <div class="date_event">
-            <p>This April 16, don't miss the chance to see</p>
-        </div>
-        <div class="lineup_event">
-            <li>Bad Bunny</li>
-            <li>Rauw Alejandro</li>
-            <li>Jhay Cortez</li>
-            <li>Jay Wheeler</li>
-            <li>Mora</li>
-        </div>
-        <div class="date_event">
-            <p>in Puerto San Jose</p>
-        </div>
-        <div class="division"></div>
-        <div class="p_event">
-            <p>Choose your spot</p>
-        </div>
-        <div class="wrap">
-            <form action="" class="formulario">
-                <div class="radio">
-                    <input type="radio" name="sexo" id="hombre" onclick="showPrice()">
-                    <label for="hombre">LA PLAYA
-                    </label>
 
-                    <input type="radio" name="sexo" id="mujer">
-                    <label for="mujer">VICEVERSA</label>
-
-                    <input type="radio" name="sexo" id="alien">
-                    <label for="alien">TIMELEZZ</label>
-                </div>
-            </form>
-        </div> -->
     </div>
 </body>
 

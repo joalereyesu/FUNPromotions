@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>FUNPromotions</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js"></script>
+</head>
+
+<body>
+    <form>
+        <label for="concert_name">Concert name
+            <input type="text" name="concert_name" id="concert_name">
+        </label>
+        <label for="date">Date
+            <input type="text" name="date" id="date">
+        </label>
+        <label for="time">Time of event
+            <input type="text" name="time" id="time">
+        </label>
+        <label for="place">Place of event
+            <input type="text" name="place" id="place">
+        </label>
+        <h2>Lineup</h2>
+        <label>Number of performers
+            <input type="number" id="Nperformers" onchange="getNumberofInputsLineUp()">
+        </label>
+        <div id='lineup'>
+        </div>
+        <h2>Locations</h2>
+        <label>Number of performers
+            <input type="number" id="NLoc" onchange="getNumberofInputsLoc()">
+        </label>
+        <div id='loc'>
+
+        </div>
+    </form>
+    <a href="/{{username}}/events"><button onclick="setNewConcert()">Submit new concert</button></a>
+</body>
+
+</html>

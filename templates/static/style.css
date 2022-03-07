@@ -201,7 +201,10 @@ a:hover {
 }
 
 .hp_cover{
-  background: url('https://cdn.theatlantic.com/thumbor/YnaH69mcNu7NYWTEefOrSuN6nCo=/0x435:4814x3143/1600x900/media/img/mt/2020/05/h_00000219852977_1/original.jpg');
+  background-image:
+  linear-gradient(to bottom, rgba(255, 255, 255, 0.52), #993b864d),
+  url('https://cdn.theatlantic.com/thumbor/YnaH69mcNu7NYWTEefOrSuN6nCo=/0x435:4814x3143/1600x900/media/img/mt/2020/05/h_00000219852977_1/original.jpg');
+  /* background: url('https://cdn.theatlantic.com/thumbor/YnaH69mcNu7NYWTEefOrSuN6nCo=/0x435:4814x3143/1600x900/media/img/mt/2020/05/h_00000219852977_1/original.jpg'); */
 }
 
 .cover_container{
@@ -306,7 +309,7 @@ a:hover {
   text-align: center;
   padding: 20px 10px 20px 10px;
   width: 80%;
-  /* background-image: linear-gradient(to right, #b9ffad, rgb(103, 113, 251)); */
+  /* background-image: linear-gradient(to right, #fc7e7e, rgb(133, 240, 133)); */
   border-radius: 10px;
   box-shadow: 1px -1px 18px -1px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease 0s;
@@ -453,6 +456,7 @@ a:hover {
 
 .formulario .radio label:hover {
   color: #7c0466;
+  box-shadow: 1px -1px 18px -1px rgba(0, 0, 0, 0.2);
 }
 
 .formulario input[type="radio"] {

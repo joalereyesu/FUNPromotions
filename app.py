@@ -27,7 +27,6 @@ def createAccount():
         mail = request.form['email']
         password = request.form['password']
         newUser = User(name, l_name, username, mail, password)
-        print(newUser)
         return redirect(f'/{newUser.username}')
     return render_template('signUp.html')
 
@@ -46,6 +45,11 @@ def concerts(username):
 def event(username, id):
     print(type(id))
     return render_template('event.html', username=username, id=int(id))
+
+
+@app.route('/<username>/post', methods=["GET", "POST"])
+def newConcert(username):
+    return render_template('addConcert.html', username=username)
 
 
 if __name__ == "__main__":
