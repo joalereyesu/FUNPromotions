@@ -3,7 +3,7 @@ from User import User
 from email.policy import default
 from flask import Flask, render_template, request, url_for, redirect
 from jinja2 import Template, FileSystemLoader, Environment
-import numpy as np
+from werkzeug.middleware.profiler import ProfilerMiddleware
 
 
 templates = FileSystemLoader('templates')
@@ -11,6 +11,8 @@ environment = Environment(loader=templates)
 
 app = Flask(__name__)
 app.static_folder = './templates/static'
+
+app.config['PROFILE'] = True
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -53,4 +55,5 @@ def newConcert(username):
 
 
 if __name__ == "__main__":
+    app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
     app.run(debug=True)
