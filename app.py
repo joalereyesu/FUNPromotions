@@ -1,6 +1,4 @@
-from crypt import methods
 from User import User
-from email.policy import default
 from flask import Flask, render_template, request, url_for, redirect
 from jinja2 import Template, FileSystemLoader, Environment
 from werkzeug.middleware.profiler import ProfilerMiddleware
@@ -23,11 +21,11 @@ def landingPage():
 @app.route('/signup', methods=["GET", "POST"])
 def createAccount():
     if request.method == 'POST':
-        name = request.form['name']
-        l_name = request.form['last_name']
-        username = request.form['username']
-        mail = request.form['email']
-        password = request.form['password']
+        name = request.args.get('name')
+        l_name = request.args.get('last_name')
+        username = request.args.get('username')
+        mail = request.args.get('email')
+        password = request.args.get('password')
         newUser = User(name, l_name, username, mail, password)
         return redirect(f'/{newUser.username}')
     return render_template('signUp.html')
