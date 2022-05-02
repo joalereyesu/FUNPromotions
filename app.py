@@ -2,6 +2,8 @@ from User import User
 from flask import Flask, render_template, request, url_for, redirect
 from jinja2 import Template, FileSystemLoader, Environment
 from werkzeug.middleware.profiler import ProfilerMiddleware
+import json
+from Stack import Stack
 
 
 templates = FileSystemLoader('templates')
@@ -38,13 +40,19 @@ def homePage(username):
 
 @app.route('/<username>/events', methods=["GET"])
 def concerts(username):
-    return render_template('concertsPage.html', username=username)
+    file = open('concertInfo.json')
+    concerts = json.load(file)
+    file.close()
+    return render_template('concertsPage.html', username=username, concerts=concerts)
 
 
 @app.route('/<username>/<id>', methods=["GET"])
 def event(username, id):
     print(type(id))
-    return render_template('event.html', username=username, id=int(id))
+    file = open('concertInfo.json')
+    concerts = json.load(file)
+    file.close()
+    return render_template('event.html', username=username, id=int(id), concerts=concerts)
 
 
 @app.route('/<username>/post', methods=["GET", "POST"])
@@ -53,5 +61,5 @@ def newConcert(username):
 
 
 if __name__ == "__main__":
-    app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
+    # app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
     app.run(debug=True)

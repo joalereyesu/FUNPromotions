@@ -1,41 +1,22 @@
-concertsData = {
-    'names': ['HOLY SUMMER', 'LA ISLA', 'SPOOKY MONSTER FESTIVAL'],
-    'lineups': [
-        ['Bad Bunny', 'Rauw Alejandro', 'Jhay Cortez', 'Jay Wheeler'],
-        ['C. Tangana', 'Rels B', 'Rosalia', 'Humbe', 'Sebastian Cortes'],
-        ['Dua Lipa', 'Doja Cat', 'Harry Styles', 'Bruno Mars', 'Lady Gaga', 'The Weeknd']],
-    'capacity': ['50000', '30550', '90800'],
-    'prices': [['1000', '1500', '2000', '2500'],
-    ['850', '1300', '1700', '2300'],
-    ['1250', '1750', '2100', '3400']],
-    'locations': [['PLATONICOS', 'TIMELEZZ', 'VICE VERSA', 'YHLQMDLG'],
-    ['SAOKO', 'ENTROPIA', 'LA ISLA', 'EL MADRILEÑO'],
-    ['PLANET HER', 'THE FAME', 'DAWN FM', 'FINE LINE']],
-    'dates': ['April 16 2022', 'July 1 2022', 'October 29 2022'],
-    'times': ['12:00AM', '3:00PM', '11:30AM'],
-    'places': ['Puerto San Jose', 'Finca Gutierres', 'Finca Jocotillo']
-};
 
-backgroundStyle = ['linear-gradient(to right, #ffadf0, rgb(251, 251, 103))', 'linear-gradient(to right, #b9ffad, rgb(103, 113, 251))', 'linear-gradient(to right, #f19448, rgb(169, 251, 103))', 'background-image: linear-gradient(to right, #fc7e7e, rgb(133, 240, 133));'];
+backgroundStyle = ['linear-gradient(to right, #ffadf0, rgb(251, 251, 103))', 'linear-gradient(to right, #b9ffad, rgb(103, 113, 251))', 'linear-gradient(to right, #f19448, rgb(169, 251, 103))', 'linear-gradient(to right, #fc7e7e, rgb(133, 240, 133))', 'linear-gradient(to right, #f24141, rgb(133, 240, 133))'];
 
 
-
-function getConcertsMainData() {
-    let concertNames = concertsData.names;
+function getConcertsMainData(concertsData) {
     let concerts_container = document.getElementById('concerts');
-    for (let i = 0; i < concertNames.length; i++) {
+    for (let i = 0; i < concertsData.length; i++) {
         let concert_card = document.createElement('div');
         concert_card.classList.add('div_concerts_card');
         concert_card.style.backgroundImage = backgroundStyle[i];
         let h2 = document.createElement('h2');
-        h2.innerHTML = concertsData.names[i];
+        h2.innerHTML = concertsData[i].name;
         concert_card.appendChild(h2);
         let h3 = document.createElement('h3');
         h3.innerHTML = 'LINEUP';
         concert_card.appendChild(h3);
         let lineup_container = document.createElement('div');
         lineup_container.classList.add('lineup_container');
-        concertsData.lineups[i].forEach(singer => {
+        concertsData[i].lineup.forEach(singer => {
             let li = document.createElement('li');
             li.innerHTML = singer;
             lineup_container.appendChild(li);
@@ -44,7 +25,7 @@ function getConcertsMainData() {
         let date = document.createElement('div');
         date.classList.add('date_container');
         let p = document.createElement('p');
-        p.innerHTML = concertsData.dates[i] + ' at ' + concertsData.times[i];
+        p.innerHTML = concertsData[i].date + ' at ' + concertsData[i].time;
         date.appendChild(p);
         concert_card.appendChild(date);
         let btn_container = document.createElement('div');
@@ -61,20 +42,21 @@ function getConcertsMainData() {
     };
 }
 
-function getSelectedConcertData(index) {
-    const locations = concertsData.locations[index];
-    const lineup = concertsData.lineups[index];
+function getSelectedConcertData(index, concertsData) {
+    const locations = concertsData[index].locations;
+    console.log(locations);
+    const lineup = concertsData[index].lineup;
     let event_div = document.getElementById('event');
     event_div.setAttribute('value', index);
     event_div.style.backgroundImage = backgroundStyle[index];
     let event_h = document.createElement('h1');
     event_h.classList.add('h_event');
-    event_h.innerHTML = concertsData.names[index];
+    event_h.innerHTML = concertsData[index].name;
     event_div.appendChild(event_h);
     let date_div = document.createElement('div');
     date_div.classList.add('date_event');
     let date = document.createElement('p');
-    date.innerHTML = "This " + concertsData.dates[index] + ", don't miss the chance to see";
+    date.innerHTML = "This " + concertsData[index].date + ", don't miss the chance to see";
     date_div.appendChild(date);
     event_div.appendChild(date_div);
     let lineup_div = document.createElement('div');
@@ -88,7 +70,7 @@ function getSelectedConcertData(index) {
     let location_div = document.createElement('div');
     location_div.classList.add('date_event');
     let location = document.createElement('p');
-    location.innerHTML = "in " + concertsData.places[index];
+    location.innerHTML = "in " + concertsData[index].place;
     location_div.appendChild(location);
     event_div.appendChild(location_div);
     let division = document.createElement('div');
@@ -113,7 +95,7 @@ function getSelectedConcertData(index) {
         loc_input.setAttribute('name', 'locations');
         loc_input.setAttribute('value', locations[j]);
         loc_input.setAttribute('id', locations[j]);
-        loc_input.setAttribute('onclick', "showPrice()");
+        loc_input.setAttribute('onclick', "showPrice(concertsInfo)");
         div_locations.appendChild(loc_input);
         let loc_label = document.createElement('label');
         loc_label.setAttribute('for', locations[j]);
@@ -125,7 +107,7 @@ function getSelectedConcertData(index) {
     event_div.appendChild(div_forms);
 }
 
-function showPrice() {
+function showPrice(concertsData) {
     let container = document.getElementById('event');
     let index = container.getAttribute('value');
     console.log(index);
@@ -133,7 +115,8 @@ function showPrice() {
     for (let i = 0; i < choice.length; i++) {
         if (choice[i].checked) {
             var val = choice[i].value;
-            var index2 = concertsData.locations[index].indexOf(val)
+            const locations = concertsData[index].locations;
+            var index2 = locations.indexOf(val);
             console.log(index2)
         }
     }
@@ -145,7 +128,8 @@ function showPrice() {
     let show_container = document.createElement('div');
     show_container.setAttribute('id', 'price_container');
     let price = document.createElement('p');
-    price.innerHTML = 'PRICE: Q.' + concertsData.prices[index][index2];
+    const prices = concertsData[index].prices;
+    price.innerHTML = 'PRICE: Q.' + prices[index2];
     price.classList.add('price_event');
     show_container.appendChild(price);
     let div = document.createElement('div');

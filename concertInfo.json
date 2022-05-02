@@ -1,0 +1,102 @@
+[
+    {
+        "name": "HOLY SUMMER",
+        "lineup": [
+            "Bad Bunny",
+            "Rauw Alejandro",
+            "Jhay Cortez",
+            "Jay Wheeler"
+        ],
+        "prices": [
+            1000,
+            1500,
+            2000,
+            2500
+        ],
+        "locations": [
+            "PLATONICOS",
+            "TIMELEZZ",
+            "VICE VERSA",
+            "YHLQMDLG"
+        ],
+        "date": "April 16 2022",
+        "time": "12:00AM",
+        "place": "Puerto San Jose"
+    },
+    {
+        "name": "LA ISLA",
+        "lineup": [
+            "C. Tangana",
+            "Rels B",
+            "Rosalia",
+            "Humbe",
+            "Sebastian Cortes"
+        ],
+        "prices": [
+            850,
+            1300,
+            1700,
+            2300
+        ],
+        "locations": [
+            "SAOKO",
+            "ENTROPIA",
+            "LA ISLA",
+            "EL MADRILEÑO"
+        ],
+        "date": "July 1 2022",
+        "time": "3:00PM",
+        "place": "Finca Gutierres"
+    },
+    {
+        "name": "SPOOKY MONSTER FESTIVAL",
+        "lineup": [
+            "Dua Lipa",
+            "Doja Cat",
+            "Harry Styles",
+            "Bruno Mars",
+            "Lady Gaga",
+            "The Weeknd"
+        ],
+        "prices": [
+            1250,
+            1750,
+            2100,
+            3400
+        ],
+        "locations": [
+            "PLANET HER",
+            "THE FAME",
+            "DAWN FM",
+            "FINE LINE"
+        ],
+        "date": "October 29 2022",
+        "time": "11:30AM",
+        "place": "Finca Jocotillo"
+    },
+    {
+        "name": "CHRISTMAS FEST",
+        "lineup": [
+            "Billie Eilish",
+            "Adele",
+            "Olivia Rodrigo",
+            "Justin Bieber",
+            "Shawn Mendez"
+        ],
+        "prices": [
+            690,
+            950,
+            1350,
+            1990
+        ],
+        "locations": [
+            "HAPPIER",
+            "HELLO",
+            "SOUR",
+            "JUSTICE"
+        ],
+        "date": "December 18 2022",
+        "time": "5:00PM",
+        "place": "Finca Dardon"
+    }
+]

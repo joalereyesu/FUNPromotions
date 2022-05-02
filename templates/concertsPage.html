@@ -6,9 +6,13 @@
     <title>FUNPromotions</title>
     <link rel="stylesheet" href="/static/style.css">
     <script src="/static/script.js"></script>
+    <script>
+        var concertsInfoStr = '{{ concerts|tojson }}';
+        var concertsInfo = JSON.parse(concertsInfoStr);
+    </script>
 </head>
 
-<body onload="getConcertsMainData()">
+<body onload="getConcertsMainData(concertsInfo)">
     <header>
         <img src='/static/FUN_white.png' class='logo' alt='logo' />
         <nav>

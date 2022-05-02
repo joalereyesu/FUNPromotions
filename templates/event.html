@@ -6,9 +6,13 @@
     <title>FUNPromotions</title>
     <link rel="stylesheet" href="/static/style.css">
     <script src="/static/script.js"></script>
+    <script>
+        var concertsInfoStr = '{{ concerts|tojson }}';
+        var concertsInfo = JSON.parse(concertsInfoStr);
+    </script>
 </head>
 
-<body onload="getSelectedConcertData('{{id}}')">
+<body onload="getSelectedConcertData('{{id}}', concertsInfo)">
     <div id='event' class="event_container">
 
     </div>
