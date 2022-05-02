@@ -134,10 +134,13 @@ function showPrice(concertsData) {
     show_container.appendChild(price);
     let div = document.createElement('div');
     div.classList.add('center');
+    let a = document.createElement('a');
+    a.setAttribute('href', 'buyTicket/' + index + '/' + index2);
     let btn = document.createElement('button');
     btn.classList.add('btn_concert');
     btn.innerHTML = 'Buy now';
-    div.appendChild(btn);
+    a.appendChild(btn);
+    div.appendChild(a);
     show_container.appendChild(div);
     container.appendChild(show_container);
 }
