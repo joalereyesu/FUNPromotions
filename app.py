@@ -1,11 +1,12 @@
 from matplotlib import ticker
 from User import User
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, jsonify
 from jinja2 import Template, FileSystemLoader, Environment
 from werkzeug.middleware.profiler import ProfilerMiddleware
 import json
 from Stack import Stack
 from Queue import Queue
+import time
 
 
 templates = FileSystemLoader('templates')
@@ -17,6 +18,15 @@ app.static_folder = './templates/static'
 app.config['PROFILE'] = True
 
 waitList = Queue()
+
+usersExample = ['marcemelgar', 'nickonolte',
+                'estebanquarzo', 'fboiton', 'danielb', 'mariops']
+festCodesExample = ['SMFFINE-LINE', 'LIEL-MADRILEÑO',
+                    'HSTIMELEZZ', 'CFSOUR', 'CFHELLO', 'LISAOKO']
+
+for x in range(len(usersExample)):
+    exampleTuple = (usersExample[x], festCodesExample[x])
+    waitList.enqueue(exampleTuple)
 
 
 def getConcerts():
@@ -69,7 +79,7 @@ def event(username, id):
     return render_template('event.html', username=username, id=int(id), concerts=concerts)
 
 
-@app.route('/<username>/buyTicket/<fest_id>/<loc_id>', methods=["GET", "POST"])
+@app.route('/<username>/waitlist/<fest_id>/<loc_id>', methods=["GET", "POST"])
 def buyTicket(username, fest_id, loc_id):
     concerts = getConcerts()
     concert_name = concerts[int(fest_id)]['name']
@@ -78,6 +88,25 @@ def buyTicket(username, fest_id, loc_id):
     buy_info = (username, ticket_code)
     waitList.enqueue(buy_info)
     return render_template('waitingList.html', username=username)
+
+
+@app.route('/waitingList/<username>', methods=['GET'])
+def waitingList(username):
+    pendingList = waitList.show()
+    if request.method == 'GET':
+        waitList.dequeue()
+        data = {
+            "waitList": waitList.show(),
+            "pendingUsers": str(waitList.size()-1)
+        }
+        print(pendingList)
+        print(len(pendingList))
+        if (len(pendingList) == 1 and pendingList[0][0] == username):
+            print("SI ENTRA")
+            return redirect(f'/buyTickets/{username}/{pendingList[1]}')
+        return data
+    else:
+        return 404
 
 
 @app.route('/<username>/post', methods=["GET", "POST"])

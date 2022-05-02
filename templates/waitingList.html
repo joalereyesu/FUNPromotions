@@ -5,11 +5,37 @@
     <meta charset="UTF-8">
     <title>FUNPromotions</title>
     <link rel="stylesheet" href="/static/style.css">
-    <script src="/static/script.js"></script>
+    <script>
+        var load = async function () {
+            fetch('/waitingList/{{username}}')
+                .then(function (response) {
+                    return response.json();
+                }).then(function (text) {
+                    console.log(text.waitList)
+                    if (text.pendingUsers == 1) {
+                        return false;
+                    }
+                    let span = document.getElementById('waitList');
+                    span.innerHTML = text.pendingUsers;
+                });
+        };
+        if (load) {
+            setInterval(load, 5000);
+        }
+        else if (!load) {
+            clearInterval(load)
+        }
+    </script>
 </head>
 
 <body>
-    <h1>HOLA</h1>
+    <div class="waitlist_container">
+        <h1>VIRTUAL WAITING LIST</h1>
+        <p>There are people buying tickets right now! Wait your turn and you'll be redirected to the buying page</p>
+        <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif">
+        <p class="pending_people">There are <span id="waitList"></span> users in front of you...</p>
+
+    </div>
 </body>
 
 </html>

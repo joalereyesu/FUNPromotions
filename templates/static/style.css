@@ -23,7 +23,7 @@ body {
 
 li,
 a,
-label{
+label {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -184,8 +184,8 @@ a:hover {
   border-color: #ffadf0;
 }
 
-.form-control:focus + .form-label,
-.form-control:not(:placeholder-shown) + .form-label {
+.form-control:focus+.form-label,
+.form-control:not(:placeholder-shown)+.form-label {
   color: #ffadf0;
   transform: translateY(-2.35em) scale(0.8);
 }
@@ -200,14 +200,14 @@ a:hover {
   text-align: center;
 }
 
-.hp_cover{
+.hp_cover {
   background-image:
-  linear-gradient(to bottom, rgba(255, 255, 255, 0.52), #993b864d),
-  url('https://cdn.theatlantic.com/thumbor/YnaH69mcNu7NYWTEefOrSuN6nCo=/0x435:4814x3143/1600x900/media/img/mt/2020/05/h_00000219852977_1/original.jpg');
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.52), #993b864d),
+    url('https://cdn.theatlantic.com/thumbor/YnaH69mcNu7NYWTEefOrSuN6nCo=/0x435:4814x3143/1600x900/media/img/mt/2020/05/h_00000219852977_1/original.jpg');
   /* background: url('https://cdn.theatlantic.com/thumbor/YnaH69mcNu7NYWTEefOrSuN6nCo=/0x435:4814x3143/1600x900/media/img/mt/2020/05/h_00000219852977_1/original.jpg'); */
 }
 
-.cover_container{
+.cover_container {
   padding: 80px 50px 80px 50px;
   text-align: center;
   font-size: 700;
@@ -226,14 +226,14 @@ a:hover {
   text-shadow: 3px 3px #1a1a40;
 }
 
-.hp_p{
+.hp_p {
   font-size: 24px;
   font-weight: 500;
   padding-left: 80px;
   padding-right: 80px;
 }
 
-.btn_container{
+.btn_container {
   margin-top: 50px;
   padding: 20px 35px;
   background-color: #ffadf0;
@@ -247,7 +247,7 @@ a:hover {
   box-shadow: 3px 3px 20px 20px rgb(0 0 0 / 20%);
 }
 
-.btn_container:hover{
+.btn_container:hover {
   background-color: #fbf8f1;
   color: #1a1a40;
 }
@@ -260,7 +260,7 @@ a:hover {
   text-align: center;
 }
 
-.hp_experience_card{
+.hp_experience_card {
   margin: 20px 10px 20px 10px;
   width: 100%;
   white-space: nowrap;
@@ -280,7 +280,7 @@ a:hover {
   font-weight: 500;
 }
 
-.hp_footer{
+.hp_footer {
   width: 100%;
   background-color: #1a1a40;
 }
@@ -316,8 +316,8 @@ a:hover {
   color: #fbf8f1;
 }
 
-.div_concerts_card h3{
-  color:#7c0466;
+.div_concerts_card h3 {
+  color: #7c0466;
   font-size: 24px;
   font-weight: 500;
 }
@@ -333,7 +333,7 @@ a:hover {
   transition: all 0.3s ease 0s;
 }
 
-.lineup_container{
+.lineup_container {
   display: inline-flex;
   font-size: 24px;
   width: 80%;
@@ -345,17 +345,17 @@ a:hover {
   border-bottom: .8px solid #7c0466;
 }
 
-.lineup_container li{
+.lineup_container li {
   padding: 10px 15px 10px 15px;
 }
 
-.date_container{
+.date_container {
   padding-top: 20px;
   font-size: 18px;
   color: #7c0466;
 }
 
-.btn_concert{
+.btn_concert {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #fbf8f1;
@@ -368,17 +368,17 @@ a:hover {
   font-size: 18px;
 }
 
-.btn_concert:hover{
+.btn_concert:hover {
   background-color: #1a1a40;
   color: #fbf8f1;
 }
 
 .event_container {
-  position:absolute;
-  top:0px;
-  right:0px;
-  bottom:0px;
-  left:0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   padding: 40px 30px;
   text-align: center;
 }
@@ -388,7 +388,7 @@ a:hover {
   font-size: 112px;
   font-weight: 900;
   text-align: center;
-  color:#fbf8f1;
+  color: #fbf8f1;
   text-shadow: 3px 3px #7c0466;
 }
 
@@ -414,19 +414,19 @@ a:hover {
   font-weight: 900;
   padding: 10px;
   font-size: 28px;
-} 
+}
 
 .lineup_event:hover {
   text-shadow: 2px 2px #fbf8f1;
   transition: all 0.2s ease-in-out 0s;
 }
 
-.division{
+.division {
   width: 10%;
   background-color: #fbf8f1;
   height: 1%;
   border-radius: 5px;
-  margin:auto;
+  margin: auto;
 }
 
 .p_event {
@@ -451,7 +451,7 @@ a:hover {
   position: relative;
   padding: 10px 15px;
   border-radius: 10px;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
 .formulario .radio label:hover {
@@ -460,20 +460,22 @@ a:hover {
 }
 
 .formulario input[type="radio"] {
-  display: none; 
+  display: none;
 }
-.formulario input[type="radio"]:checked + label:before {
-  display: none; 
+
+.formulario input[type="radio"]:checked+label:before {
+  display: none;
 }
-.formulario input[type="radio"]:checked + label {
+
+.formulario input[type="radio"]:checked+label {
   padding: 10px 15px;
   background: #1a1a40;
   border-radius: 0px;
-  color: #fbf8f1; 
+  color: #fbf8f1;
   transition: all 0.3s ease;
 }
 
-.price_event{
+.price_event {
   font-size: 30px;
   font-weight: 900;
   color: #1a1a40;
@@ -481,11 +483,39 @@ a:hover {
   margin: 20px;
 }
 
+.waitlist_container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  padding: 40px 30px;
+  text-align: center;
+}
 
+.waitlist_container h1 {
+  font-size: 52px;
+  color: #e9940b;
+  padding-bottom: 20px;
+}
 
+.waitlist_container img {
+  width: 30%
+}
 
+.waitlist_container p {
+  font-size: 20px;
+}
 
+.pending_people {
+  font-size: 18px;
+  color: #e9940b;
+}
 
-
-
-
+.pending_people span {
+  font-weight: bold;
+}
