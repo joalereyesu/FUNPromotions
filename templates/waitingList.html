@@ -12,19 +12,22 @@
                     return response.json();
                 }).then(function (text) {
                     console.log(text.waitList)
-                    if (text.pendingUsers == 1) {
-                        return false;
+                    if (text.stop) {
+                        console.log('entro')
+                        location.assign('http://127.0.0.1:5000/{{username}}/' + text.waitList[0][1]);
                     }
                     let span = document.getElementById('waitList');
                     span.innerHTML = text.pendingUsers;
+                    return text.pendingUsers
                 });
         };
-        if (load) {
-            setInterval(load, 5000);
-        }
-        else if (!load) {
-            clearInterval(load)
-        }
+        setInterval(load, 5000);
+        // if (load) {
+        //     setInterval(load, 5000);
+        // }
+        // else if (!load) {
+        //     clearInterval(load)
+        // }
     </script>
 </head>
 

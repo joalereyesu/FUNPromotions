@@ -80,7 +80,7 @@ def event(username, id):
 
 
 @app.route('/<username>/waitlist/<fest_id>/<loc_id>', methods=["GET", "POST"])
-def buyTicket(username, fest_id, loc_id):
+def waitlist(username, fest_id, loc_id):
     concerts = getConcerts()
     concert_name = concerts[int(fest_id)]['name']
     location_name = concerts[int(fest_id)]['locations'][int(loc_id)]
@@ -97,16 +97,21 @@ def waitingList(username):
         waitList.dequeue()
         data = {
             "waitList": waitList.show(),
-            "pendingUsers": str(waitList.size()-1)
+            "pendingUsers": str(waitList.size()-1),
         }
         print(pendingList)
         print(len(pendingList))
         if (len(pendingList) == 1 and pendingList[0][0] == username):
             print("SI ENTRA")
-            return redirect(f'/buyTickets/{username}/{pendingList[1]}')
+            return {"stop": True}
         return data
     else:
         return 404
+
+
+@app.route('/buyTicket/<username>/<fest_id>', methods=['GET', 'POST'])
+def buyTicket(username, fest_id):
+    return render_template('buyTickets.html')
 
 
 @app.route('/<username>/post', methods=["GET", "POST"])
