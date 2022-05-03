@@ -18,6 +18,7 @@ app.static_folder = './templates/static'
 app.config['PROFILE'] = True
 
 waitList = Queue()
+ticketsSold = Stack()
 
 usersExample = ['marcemelgar', 'nickonolte',
                 'estebanquarzo', 'fboiton', 'danielb', 'mariops']
@@ -98,12 +99,13 @@ def waitingList(username):
         data = {
             "waitList": waitList.show(),
             "pendingUsers": str(waitList.size()-1),
+            'stop': False
         }
         print(pendingList)
         print(len(pendingList))
         if (len(pendingList) == 1 and pendingList[0][0] == username):
-            print("SI ENTRA")
-            return {"stop": True}
+            data['stop'] = True
+            return data
         return data
     else:
         return 404

@@ -21,7 +21,13 @@
         ],
         "date": "April 16 2022",
         "time": "12:00AM",
-        "place": "Puerto San Jose"
+        "place": "Puerto San Jose",
+        "codes": [
+            "HSPLATONICOS",
+            "HSTIMELEZZ",
+            "HSVICE-VERSA",
+            "HSYHLQMDLG"
+        ]
     },
     {
         "name": "LA ISLA",
@@ -46,7 +52,13 @@
         ],
         "date": "July 1 2022",
         "time": "3:00PM",
-        "place": "Finca Gutierres"
+        "place": "Finca Gutierres",
+        "codes": [
+            "LISAOKO",
+            "LIENTROPIA",
+            "LILA-ISLA",
+            "LIEL-MADRILEÑO"
+        ]
     },
     {
         "name": "SPOOKY MONSTER FESTIVAL",
@@ -72,7 +84,13 @@
         ],
         "date": "October 29 2022",
         "time": "11:30AM",
-        "place": "Finca Jocotillo"
+        "place": "Finca Jocotillo",
+        "codes": [
+            "SMFPLANET-HER",
+            "SMFTHE-FAME",
+            "SMFDAWN-FM",
+            "SMFFINE-LINE"
+        ]
     },
     {
         "name": "CHRISTMAS FEST",
@@ -97,6 +115,12 @@
         ],
         "date": "December 18 2022",
         "time": "5:00PM",
-        "place": "Finca Dardon"
+        "place": "Finca Dardon",
+        "codes": [
+            "CFHAPPIER",
+            "CFHELLO",
+            "CFSOUR",
+            "CFJUSTICE"
+        ]
     }
 ]

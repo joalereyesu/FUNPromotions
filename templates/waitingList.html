@@ -6,28 +6,28 @@
     <title>FUNPromotions</title>
     <link rel="stylesheet" href="/static/style.css">
     <script>
+        var done = false;
         var load = async function () {
             fetch('/waitingList/{{username}}')
                 .then(function (response) {
                     return response.json();
                 }).then(function (text) {
                     console.log(text.waitList)
-                    if (text.stop) {
-                        console.log('entro')
-                        location.assign('http://127.0.0.1:5000/{{username}}/' + text.waitList[0][1]);
+                    if (text.stop == true) {
+                        done = true;
+                        window.location.replace('http://127.0.0.1:5000/buyTicket/{{username}}/' + text.waitList[0][1]);
                     }
                     let span = document.getElementById('waitList');
                     span.innerHTML = text.pendingUsers;
                     return text.pendingUsers
                 });
         };
-        setInterval(load, 5000);
-        // if (load) {
-        //     setInterval(load, 5000);
-        // }
-        // else if (!load) {
-        //     clearInterval(load)
-        // }
+        if (!done) {
+            setInterval(load, 5000);
+        }
+        else if (done) {
+            clearInterval(load, 5000);
+        }
     </script>
 </head>
 

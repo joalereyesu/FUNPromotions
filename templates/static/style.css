@@ -519,3 +519,59 @@ a:hover {
 .pending_people span {
   font-weight: bold;
 }
+
+.h_checkout {
+  padding: 10px;
+  font-size: 112px;
+  font-weight: 900;
+  text-align: center;
+  color: #fbf8f1;
+  text-shadow: 3px 3px #ffadf0;
+}
+
+/* .ticket_info {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 700px;
+  height: 500px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5%;
+  margin-left: 30px;
+  box-shadow: 0px 1px 20px 3px rgb(0 0 0 / 20%);
+} */
+
+.cards_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.concert_chck_info {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-size: 38px;
+  font-style: 900;
+  text-align: center;
+  padding: 20px 10px 20px 10px;
+  width: 55%;
+  box-shadow: 1px -1px 18px -1px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to right, #ffadf0, #ffecab);
+}
+
+.buy_info_card {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-style: 900;
+  text-align: center;
+  padding: 20px 10px 20px 10px;
+  width: 35%;
+  box-shadow: 1px -1px 18px -1px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease 0s;
+  background-color: #fbf8f1;
+}

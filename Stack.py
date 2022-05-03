@@ -50,7 +50,6 @@ class Stack:
         self.head.next = node
         self.size += 1
 
-    # Remove a value from the stack and return.
     def pop(self):
         if self.isEmpty():
             raise Exception("Popping from an empty stack")
