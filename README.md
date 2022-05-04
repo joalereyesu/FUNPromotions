@@ -34,3 +34,18 @@ Para el diseño de la pagina se utilizo HTML y CSS.
 **Testeo:**
 - Unit tests para comprobar el funcionamiento de las funciones que acompaña la clase de usuario
 - Postman para comprobar los request methods del API
+
+## Segunda entrega
+Los objetivos de la segunda entrega se concentraran en los que se ha visto en el segundo modulo de la clase de estructuras de datos.
+
+**Mejoras de primera entrega:** En la primera entrega los arreglos con la data de los conciertos se encontraba en la parte del front end. En esta entrega se creo un archivo json en donde se encuentra la informacion de los conciertos para asi manipularla en el back end. 
+
+**Queue:** Estructura que sera implementada para la waitlist de usuarios que se encontraran comprando tickets de los festivales
+- El Queue contendra un tuple con el nombre de usuario y el codigo del festival
+- Para motivos de visualizacion y funcionamiento, se eliminara un elemento de el queue cada 5 segundos. 
+- Se tendra un Queue con ejemplos predeterminados por propositos de funcionalidad y visualizacion
+
+**Stack:** Estructura que se implementara en el almacenamiento de tickets vendidos
+- Cuando un usuario realice una compra de un ticket, se guardara en el stack un tuple con el usuario y el codigo del festival
+- El usuario podra cancelar antes de aceptar, si cancela el tuple almacenado sera eliminado del stack y no se guardara la compra
+- Se tendra un Stack con ejemplos predeterminados por propositos de funcionalidad
