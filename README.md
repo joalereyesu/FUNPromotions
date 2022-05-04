@@ -49,3 +49,8 @@ Los objetivos de la segunda entrega se concentraran en los que se ha visto en el
 - Cuando un usuario realice una compra de un ticket, se guardara en el stack un tuple con el usuario y el codigo del festival
 - El usuario podra cancelar antes de aceptar, si cancela el tuple almacenado sera eliminado del stack y no se guardara la compra
 - Se tendra un Stack con ejemplos predeterminados por propositos de funcionalidad
+
+**Funcionalidades:**
+- Opcion de comprar entrada para cualquiera de los festivales disponibles
+- Waiting list mientras otros usuarios compran entradas
+- Introducir informacion de compra 
