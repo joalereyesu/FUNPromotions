@@ -10,6 +10,7 @@
         var load = async function () {
             fetch('/waitingList/{{username}}')
                 .then(function (response) {
+                    console.log(response);
                     return response.json();
                 }).then(function (text) {
                     console.log(text.waitList)

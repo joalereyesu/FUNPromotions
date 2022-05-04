@@ -32,6 +32,7 @@ for x in range(len(usersExample)):
     ticketsSold.push(exampleTuple)
 
 print(f"QUEUE INICIAL: {waitList.show()}")
+print(len(waitList.show()))
 print(f"STACK INICIAL: {ticketsSold.getStackAsList()}")
 
 
@@ -112,17 +113,17 @@ def waitingList(username):
         waitList.dequeue()
         data = {
             "waitList": waitList.show(),
-            "pendingUsers": str(waitList.size()-1),
+            "pendingUsers": str(waitList.size()),
             'stop': False
         }
         print(pendingList)
         print(len(pendingList))
         if (len(pendingList) == 1 and pendingList[0][0] == username):
             data['stop'] = True
-            return data
-        return data
+            return jsonify(data)
+        return jsonify(data)
     else:
-        return 404
+        return page_not_found(404)
 
 
 @app.route('/buyTicket/<username>/<fest_id>', methods=['GET', 'POST'])
@@ -145,9 +146,24 @@ def cancelTicket(username):
     return {"success": True}
 
 
+@app.route('/getStacks/<username>', methods=['GET'])
+def getStacks(username):
+    if request.method == 'GET':
+        userInfo = ticketsSold.peek()
+        return {
+            "username": userInfo[0],
+            "fest_id": userInfo[1]
+        }
+
+
 @app.route('/<username>/post', methods=["GET", "POST"])
 def newConcert(username):
     return render_template('addConcert.html', username=username)
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('error_found.html'), 404
 
 
 if __name__ == "__main__":
