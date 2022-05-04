@@ -167,5 +167,5 @@ def page_not_found(error):
 
 
 if __name__ == "__main__":
-    # app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
+    app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
     app.run(debug=True)
