@@ -499,7 +499,7 @@ a:hover {
 
 .waitlist_container h1 {
   font-size: 52px;
-  color: #e9940b;
+  color: #ff097d;
   padding-bottom: 20px;
 }
 
@@ -513,7 +513,7 @@ a:hover {
 
 .pending_people {
   font-size: 18px;
-  color: #e9940b;
+  color: #ff097d;
 }
 
 .pending_people span {
@@ -527,6 +527,8 @@ a:hover {
   text-align: center;
   color: #fbf8f1;
   text-shadow: 3px 3px #ffadf0;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* .ticket_info {
@@ -550,15 +552,48 @@ a:hover {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 18px;
-  margin-bottom: 10px;
+  margin-top: 5%;
+  margin-bottom: 5%;
   font-size: 38px;
   font-style: 900;
   text-align: center;
   padding: 20px 10px 20px 10px;
   width: 55%;
+  background-image: linear-gradient(to right, #ffadf0, #ffecab), url('./ticketBG.jpg');
   box-shadow: 1px -1px 18px -1px rgba(0, 0, 0, 0.2);
-  background-image: linear-gradient(to right, #ffadf0, #ffecab);
+}
+
+.concert_chck_info h3 {
+  color: #7c0466;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.concert_chck_info h1 {
+  color: #fbf8f1;
+  font-weight: 900;
+}
+
+.concert_chck_info h2 {
+  padding-top: 15px;
+  color: #1a1a40;
+  font-weight: 500;
+  font-size: 24px;
+  padding-top: 15px;
+}
+
+.concert_chck_info p {
+  color: #1a1a40;
+  font-size: 16px;
+}
+
+.ticket_container {
+  border-top: 1px solid #7c0466;
+  border-bottom: 1px solid #7c0466;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0px 10px 0px;
 }
 
 .buy_info_card {
@@ -568,10 +603,64 @@ a:hover {
   margin-top: 18px;
   margin-bottom: 10px;
   font-style: 900;
-  text-align: center;
   padding: 20px 10px 20px 10px;
   width: 35%;
   box-shadow: 1px -1px 18px -1px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease 0s;
   background-color: #fbf8f1;
+  border-radius: 10px;
+}
+
+.form-label-chkt {
+  display: block;
+  opacity: 2;
+  transform: translateY(-1.25em);
+  transform-origin: 0 0;
+  transition: all 0.3s;
+  color: #10101b;
+}
+
+.form-control-chkt {
+  box-shadow: none;
+  background-color: #fbf8f1;
+  border-radius: 0px;
+  border-color: #10101b;
+  border-style: none none solid none;
+  width: 100%;
+  transition: all 0.5s;
+  padding: 5px;
+  color: #10101b;
+}
+
+.form-control-chkt::placeholder {
+  color: transparent;
+}
+
+.form-control-chkt:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #ffadf0;
+}
+
+.form-control-chkt:focus+.form-label-chkt,
+.form-control-chkt:not(:placeholder-shown)+.form-label-chkt {
+  color: #ffadf0;
+  transform: translateY(-2.35em) scale(0.8);
+}
+
+.btn_chkt {
+  padding: 10px 40px;
+  background-color: #1a1a40;
+  color: #fbf8f1;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.btn_chkt:hover {
+  background-color: #ffadf0;
+  color: #fbf8f1;
 }

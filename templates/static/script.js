@@ -145,6 +145,24 @@ function showPrice(concertsData) {
     container.appendChild(show_container);
 }
 
+function getTicket(user, id, data) {
+    let ticketCard = document.getElementById('ticket');
+    let h_fest = document.createElement('h1');
+    h_fest.innerHTML = data.name;
+    ticketCard.appendChild(h_fest);
+    let h_date = document.createElement('h3');
+    h_date.innerHTML = data.date + " at " + data.time + " in " + data.place;
+    ticketCard.appendChild(h_date);
+    let h_loc = document.createElement('h2');
+    data.codes.forEach(loc => {
+        if (id == loc) {
+            let index = data.codes.indexOf(loc);
+            h_loc.innerHTML = "SEAT LOCATION: " + data.locations[index];
+        }
+    });
+    ticketCard.appendChild(h_loc);
+}
+
 
 function getNumberofInputsLineUp() {
     let numberPerformers = document.getElementById('Nperformers').value;

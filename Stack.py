@@ -26,6 +26,14 @@ class Stack:
             cur = cur.next
         return out[:-3]
 
+    def getStackAsList(self):
+        stack = []
+        cur = self.head.next
+        while cur:
+            stack.append(cur.value)
+            cur = cur.next
+        return stack
+
     # Get the current size of the stack
     def getSize(self):
         return self.size

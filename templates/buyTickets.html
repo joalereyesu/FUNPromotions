@@ -5,18 +5,47 @@
     <meta charset="UTF-8">
     <title>FUNPromotions</title>
     <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js"></script>
+    <script>
+        var concertStr = '{{ concertData|tojson }}';
+        var concertInfo = JSON.parse(concertStr);
+    </script>
 </head>
 
-<body style="background-color: #1a1a40;">
+<body style="background-color: #1a1a40;" onload="getTicket('{{username}}', '{{fest_id}}', concertInfo)">
     <div>
         <h1 class="h_checkout">CHECKOUT</h1>
     </div>
     <div class="cards_container">
         <div class="concert_chck_info">
-            <h1>LA ISLA</h1>
+            <div class="ticket_container" id="ticket">
+                <h3>Your virtual ticket for</h3>
+            </div>
         </div>
         <div class="buy_info_card">
-            <h1>Buying information</h1>
+            <h1 style="color:#1a1a40; text-align: center;">Buying information</h1>
+            <div class="signup_forms">
+                <form method="POST">
+                    <div class="form-group">
+                        <input type='text' class="form-control-chkt" name="name" placeholder="Jane" id="name"
+                            required></input>
+                        <label for="name" class="form-label-chkt">Card name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type='text' class="form-control-chkt" name="last_name" placeholder="Doe"
+                            required></input>
+                        <label for="last_name" class="form-label-chkt">Card number</label>
+                    </div>
+                    <div class="form-group">
+                        <input type='text' class="form-control-chkt" name="username" placeholder="janedoe132"
+                            required></input>
+                        <label for="username" class="form-label-chkt">Card code</label>
+                    </div>
+                </form>
+                <div class="center">
+                    <a href="/{{username}}/{{fest_id}}/success"><button class="btn_chkt" type="submit">Buy</button></a>
+                </div>
+            </div>
         </div>
     </div>
 </body>

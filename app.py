@@ -1,3 +1,4 @@
+from crypt import methods
 from matplotlib import ticker
 from User import User
 from flask import Flask, render_template, request, url_for, redirect, jsonify
@@ -28,6 +29,10 @@ festCodesExample = ['SMFFINE-LINE', 'LIEL-MADRILEÑO',
 for x in range(len(usersExample)):
     exampleTuple = (usersExample[x], festCodesExample[x])
     waitList.enqueue(exampleTuple)
+    ticketsSold.push(exampleTuple)
+
+print(f"QUEUE INICIAL: {waitList.show()}")
+print(f"STACK INICIAL: {ticketsSold.getStackAsList()}")
 
 
 def getConcerts():
@@ -35,6 +40,15 @@ def getConcerts():
     data = json.load(file)
     file.close()
     return data
+
+
+def getTicketInfo(id):
+    concerts = getConcerts()
+    for concert in concerts:
+        codes = concert['codes']
+        for code in codes:
+            if code == id:
+                return concert
 
 
 def generateTicketCode(name, loc_name):
@@ -113,7 +127,22 @@ def waitingList(username):
 
 @app.route('/buyTicket/<username>/<fest_id>', methods=['GET', 'POST'])
 def buyTicket(username, fest_id):
-    return render_template('buyTickets.html')
+    concert = getTicketInfo(fest_id)
+    return render_template('buyTickets.html', username=username, fest_id=fest_id, concertData=concert)
+
+
+@app.route('/<username>/<fest_id>/success', methods=['GET', 'POST'])
+def saveBuy(username, fest_id):
+    ticketsSold.push((username, fest_id))
+    print(f"STACK INSERTANDO ELEMENTO: {ticketsSold.getStackAsList()}")
+    return render_template('success.html', username=username)
+
+
+@app.route('/cancelTicket/<username>', methods=['GET', 'POST'])
+def cancelTicket(username):
+    ticketsSold.pop()
+    print(f"STACK ELIMINANDO ELEMENTO: {ticketsSold.getStackAsList()}")
+    return {"success": True}
 
 
 @app.route('/<username>/post', methods=["GET", "POST"])

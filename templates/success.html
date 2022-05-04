@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>FUNPromotions</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js"></script>
+    <script>
+        const deleteTicket = async function () {
+            fetch('/cancelTicket/{{username}}')
+                .then(function (response) {
+                    return response.json();
+                });
+        };
+    </script>
+</head>
+
+<body>
+    <div class="buy_info_card">
+        <h1 style="text-align: center; padding: 10px 0px 10px 0px;">THANK YOU FOUR YOUR PURCHASE!!</h1>
+        <p style="text-align: center; padding-bottom: 15px;">A QR code has been sent to your mail. Please save it since
+            it is your ticket for
+            the
+            festival. See you soon!</p>
+        <div class="cards_container center">
+            <a href="/{{username}}"><button onclick="deleteTicket()" class="btn_chkt" type="button"
+                    style="margin-right: 5px; background-color: rgb(239, 78, 78);">Cancel
+                    ticket</button></a>
+            <a href="/{{username}}"><button class="btn_chkt" type="button"
+                    style="margin-left: 5px;">Continue</button></a>
+        </div>
+    </div>
+</body>
+
+</html>
