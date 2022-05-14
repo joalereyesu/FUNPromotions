@@ -7,7 +7,8 @@ from werkzeug.middleware.profiler import ProfilerMiddleware
 import json
 from Stack import Stack
 from Queue import Queue
-import time
+from BinaryTree import Tree
+from datetime import datetime
 
 
 templates = FileSystemLoader('templates')
@@ -17,6 +18,20 @@ app = Flask(__name__)
 app.static_folder = './templates/static'
 
 app.config['PROFILE'] = True
+
+concertsTree = Tree()
+
+datestamps = []
+file = open('concertInfo.json')
+data = json.load(file)
+for concert in data:
+    strDate = concert['date']
+    date = datetime.strptime(strDate, "%B %d, %Y")
+    datestamp = int(datetime.timestamp(date))
+    datestamps.append(datestamp)
+    concert['date'] = int(datestamp)
+    concertsTree.insert(concert)
+file.close()
 
 waitList = Queue()
 ticketsSold = Stack()
@@ -86,20 +101,26 @@ def homePage(username):
 @app.route('/<username>/events', methods=["GET"])
 def concerts(username):
     concerts = getConcerts()
-    return render_template('concertsPage.html', username=username, concerts=concerts)
+    return render_template('concertsPage.html', username=username, concerts=concerts, datestamps=datestamps)
 
 
-@app.route('/<username>/<id>', methods=["GET"])
-def event(username, id):
-    concerts = getConcerts()
-    return render_template('event.html', username=username, id=int(id), concerts=concerts)
+@app.route('/<username>/<datestamp>/<id>', methods=["GET"])
+def event(username, datestamp, id):
+    selectedConcert = concertsTree.find(int(datestamp))
+    print(selectedConcert)
+    date = datetime.fromtimestamp(
+        selectedConcert['date']).strftime("%B %d, %Y")
+    print(selectedConcert)
+    concertsTree.preorder()
+    return render_template('event.html', username=username, id=int(id), concert=selectedConcert, date=date)
 
 
-@app.route('/<username>/waitlist/<fest_id>/<loc_id>', methods=["GET", "POST"])
-def waitlist(username, fest_id, loc_id):
-    concerts = getConcerts()
-    concert_name = concerts[int(fest_id)]['name']
-    location_name = concerts[int(fest_id)]['locations'][int(loc_id)]
+@app.route('/<username>/<datestamp>/waitlist/<loc_id>', methods=["GET", "POST"])
+def waitlist(username, datestamp, loc_id):
+    selectedConcert = concertsTree.find(int(datestamp))
+    print(selectedConcert)
+    concert_name = selectedConcert['name']
+    location_name = selectedConcert['locations'][int(loc_id)]
     ticket_code = generateTicketCode(concert_name, location_name)
     buy_info = (username, ticket_code)
     waitList.enqueue(buy_info)
@@ -128,8 +149,11 @@ def waitingList(username):
 
 @app.route('/buyTicket/<username>/<fest_id>', methods=['GET', 'POST'])
 def buyTicket(username, fest_id):
-    concert = getTicketInfo(fest_id)
-    return render_template('buyTickets.html', username=username, fest_id=fest_id, concertData=concert)
+    selectedConcert = concertsTree.find(int(datestamp))
+    print(selectedConcert)
+    date = datetime.fromtimestamp(
+        selectedConcert['date']).strftime("%B %d, %Y")
+    return render_template('buyTickets.html', username=username, fest_id=fest_id, concertData=selectedConcert, date=date)
 
 
 @app.route('/<username>/<fest_id>/success', methods=['GET', 'POST'])
@@ -167,5 +191,5 @@ def page_not_found(error):
 
 
 if __name__ == "__main__":
-    app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
+    ##app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
     app.run(debug=True)

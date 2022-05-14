@@ -9,10 +9,12 @@
     <script>
         var concertsInfoStr = '{{ concerts|tojson }}';
         var concertsInfo = JSON.parse(concertsInfoStr);
+        var datestampsStr = '{{ datestamps|tojson }}';
+        var datestamps = JSON.parse(datestampsStr);
     </script>
 </head>
 
-<body onload="getConcertsMainData(concertsInfo)">
+<body onload="getConcertsMainData(concertsInfo, datestamps)">
     <header>
         <img src='/static/FUN_white.png' class='logo' alt='logo' />
         <nav>
