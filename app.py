@@ -9,6 +9,7 @@ from Stack import Stack
 from Queue import Queue
 from BinaryTree import Tree
 from datetime import datetime
+from Graph import Graph
 
 
 templates = FileSystemLoader('templates')
@@ -35,11 +36,13 @@ file.close()
 
 waitList = Queue()
 ticketsSold = Stack()
+usersDistribution = Graph()
 
 usersExample = ['marcemelgar', 'nickonolte',
                 'estebanquarzo', 'fboiton', 'danielb', 'mariops']
 festCodesExample = ['SMFFINE-LINE', 'LIEL-MADRILEÑO',
                     'HSTIMELEZZ', 'CFSOUR', 'CFHELLO', 'LISAOKO']
+
 
 for x in range(len(usersExample)):
     exampleTuple = (usersExample[x], festCodesExample[x])
@@ -73,6 +76,18 @@ def generateTicketCode(name, loc_name):
         code = code + letter[0]
     code = code + loc_name.replace(' ', '-')
     return code
+
+
+graphsConcertExample = getConcerts()
+for concert in graphsConcertExample:
+    usersDistribution.add_node(concert['name'])
+    for code in concert['codes']:
+        usersDistribution.add_node(code)
+        usersDistribution.add_edge(concert['name'], code)
+
+for i in range(len(usersExample)):
+    usersDistribution.add_node(usersExample[i])
+    usersDistribution.add_edge(festCodesExample[i], usersExample[i])
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -159,6 +174,9 @@ def buyTicket(username, fest_id):
 @app.route('/<username>/<fest_id>/success', methods=['GET', 'POST'])
 def saveBuy(username, fest_id):
     ticketsSold.push((username, fest_id))
+    usersDistribution.add_node(username)
+    usersDistribution.add_edge(fest_id, username)
+    usersDistribution.disp_graph()
     print(f"STACK INSERTANDO ELEMENTO: {ticketsSold.getStackAsList()}")
     return render_template('success.html', username=username)
 
