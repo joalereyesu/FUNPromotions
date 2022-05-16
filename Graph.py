@@ -24,6 +24,15 @@ class Graph():
             else:
                 print("The given node does not exist")
 
+    def getNode(self, node):
+        if node in self.list:
+            return self.adjacency_lst[node]
+        else:
+            return False
+
+    def getAllInfo(self):
+        return self.adjacency_lst
+
     def disp_graph(self):
         for node in self.adjacency_lst:
             print(node, "->", [i for i in self.adjacency_lst[node]])

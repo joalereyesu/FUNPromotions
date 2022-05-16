@@ -53,9 +53,6 @@ class Node(object):
 
         return current
 
-    def getNodeByName(self, name):
-        pass
-
     def delete(self, data, root):
         ''' For deleting the node '''
         if self is None:
@@ -99,9 +96,6 @@ class Node(object):
 
     def find(self, data):
         ''' This function checks whether the specified data is in tree or not '''
-        print(type(data))
-        print(f"AQUI: {type(self.data['date'])}")
-        print(self.data['date'])
         if (data == self.data['date']):
             return self.data
         elif(data < self.data['date']):
@@ -159,7 +153,6 @@ class Tree(object):
             return self.root.delete(data, self.root)
 
     def find(self, data):
-        print(type(data))
         if self.root:
             return self.root.find(data)
         else:

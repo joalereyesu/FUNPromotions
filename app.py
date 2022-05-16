@@ -1,5 +1,4 @@
 from crypt import methods
-from matplotlib import ticker
 from User import User
 from flask import Flask, render_template, request, url_for, redirect, jsonify
 from jinja2 import Template, FileSystemLoader, Environment
@@ -10,6 +9,14 @@ from Queue import Queue
 from BinaryTree import Tree
 from datetime import datetime
 from Graph import Graph
+import firebase_admin
+import pyrebase
+from firebase_admin import credentials, auth
+
+# CONNECTION TO FIREBASE
+cred = credentials.Certificate('fbAdminConfig.json')
+firebase = firebase_admin.initialize_app(cred)
+pb = pyrebase.initialize_app(json.load(open('fbconfig.json')))
 
 
 templates = FileSystemLoader('templates')
@@ -89,22 +96,42 @@ for i in range(len(usersExample)):
     usersDistribution.add_node(usersExample[i])
     usersDistribution.add_edge(festCodesExample[i], usersExample[i])
 
+print(usersDistribution.getNode("CFSOUR"))
+
 
 @app.route('/', methods=["GET", "POST"])
 def landingPage():
+    if request.method == "POST":
+        username = request.form.get('username')
+        mail = request.form.get('email')
+        password = request.form.get('password')
+        try:
+            user = pb.auth().sign_in_with_email_and_password(mail, password)
+            print(user)
+            jwt = user['idToken']
+            return redirect(f'/{username}')
+        except:
+            return {'message': 'There was an error loging in'}, 400
     return render_template('landingPage.html')
 
 
 @app.route('/signup', methods=["GET", "POST"])
 def createAccount():
     if request.method == 'POST':
-        name = request.form['name']
-        l_name = request.form['last_name']
-        username = request.form['username']
-        mail = request.form['email']
-        password = request.form['password']
+        name = request.form.get('name')
+        l_name = request.form.get('last_name')
+        username = request.form.get('username')
+        mail = request.form.get('email')
+        password = request.form.get('password')
         newUser = User(name, l_name, username, mail, password)
-        return redirect(f'/{newUser.username}')
+        try:
+            user = auth.create_user(
+                email=mail,
+                password=password
+            )
+            return redirect(f'/{newUser.username}'), 200
+        except:
+            return {'message': 'Error creating user'}, 400
     return render_template('signUp.html')
 
 
@@ -201,6 +228,12 @@ def getStacks(username):
 @app.route('/<username>/post', methods=["GET", "POST"])
 def newConcert(username):
     return render_template('addConcert.html', username=username)
+
+
+@app.route('/admin/seeUsers', methods=['GET'])
+def seeUsers():
+
+    return render_template('seeUsers.html')
 
 
 @app.errorhandler(404)
