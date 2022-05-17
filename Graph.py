@@ -6,6 +6,7 @@ class Graph():
     def add_node(self, node):
         if node not in self.list:
             self.list.append(node)
+            return True
         else:
             return "The given node does not exist"
 
@@ -15,11 +16,13 @@ class Graph():
             if node1 not in self.adjacency_lst:
                 temp.append(node2)
                 self.adjacency_lst[node1] = temp
+                return True
 
             elif node1 in self.adjacency_lst:
                 temp.extend(self.adjacency_lst[node1])
                 temp.append(node2)
                 self.adjacency_lst[node1] = temp
+                return True
 
             else:
                 print("The given node does not exist")
