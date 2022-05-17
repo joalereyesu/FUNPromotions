@@ -28,5 +28,4 @@ jobs:
       # Run our unit tests
       - name: Run unit tests
         run: | 
-          python UnitTestingClass.py
-          python UnitTestingS_Q.py
+          pytest
