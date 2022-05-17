@@ -27,7 +27,7 @@ iniconfig
 itsdangerous
 Jinja2
 jws==0.1.3
-MarkupSafe==2.1.1
+MarkupSafe
 msgpack==1.0.3
 oauth2client==3.0.0
 packaging==21.3
