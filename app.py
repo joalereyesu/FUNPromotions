@@ -109,7 +109,7 @@ def landingPage():
             user = pb.auth().sign_in_with_email_and_password(mail, password)
             print(user)
             jwt = user['idToken']
-            return redirect(f'/{username}'), {'token': jwt}, 200
+            return redirect(f'/{username}')
         except:
             return {'message': 'There was an error loging in'}, 400
     return render_template('landingPage.html')
@@ -129,7 +129,7 @@ def createAccount():
                 email=mail,
                 password=password
             )
-            return redirect(f'/{newUser.username}'), {'message': 'Successfully created user {user.iud}'}, 200
+            return redirect(f'/{newUser.username}')
         except:
             return {'message': 'Error creating user'}, 400
     return render_template('signUp.html')
@@ -244,4 +244,4 @@ def page_not_found(error):
 
 if __name__ == "__main__":
     ##app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
-    app.run(debug=True, port=3000)
+    app.run(debug=True)
