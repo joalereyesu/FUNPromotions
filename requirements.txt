@@ -51,5 +51,5 @@ toml==0.10.2
 tomli
 uritemplate==4.1.1
 urllib3==1.26.9
-Werkzeug==2.1.2
+Werkzeug
 zipp==3.8.0
