@@ -24,9 +24,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install flask
+          pip install -r requirements.txt
+          pip install -e
           
       # Run our unit tests
       - name: Run unit tests
         run: | 
-          python UnitTestingClass.py
-          python UnitTestingS_Q.py
+          python -m pytest --import-mode=append tests/
