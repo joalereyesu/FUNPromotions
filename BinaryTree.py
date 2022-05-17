@@ -59,9 +59,9 @@ class Node(object):
             return None
 
         # if current node's data is less than that of root node, then only search in left subtree else right subtree
-        if data['date'] < self.data['date']:
+        if data < self.data['date']:
             self.leftChild = self.leftChild.delete(data, root)
-        elif data['date'] > self.data['date']:
+        elif data > self.data['date']:
             self.rightChild = self.rightChild.delete(data, root)
         else:
             # deleting node with one child
@@ -92,7 +92,7 @@ class Node(object):
             self.data = temp.data
             self.rightChild = self.rightChild.delete(temp.data, root)
 
-        return self
+        return True
 
     def find(self, data):
         ''' This function checks whether the specified data is in tree or not '''
