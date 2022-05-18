@@ -2,6 +2,7 @@ class Graph():
     def __init__(self):
         self.adjacency_lst = {}
         self.list = []
+        self.edges = []
 
     def add_node(self, node):
         if node not in self.list:
@@ -39,3 +40,9 @@ class Graph():
     def disp_graph(self):
         for node in self.adjacency_lst:
             print(node, "->", [i for i in self.adjacency_lst[node]])
+
+    def getAllRelations(self):
+        for node in self.adjacency_lst:
+            for element in self.adjacency_lst[node]:
+                self.edges.append((node, element))
+        return self.edges
