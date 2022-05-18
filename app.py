@@ -1,4 +1,3 @@
-from crypt import methods
 from User import User
 from flask import Flask, render_template, request, url_for, redirect, jsonify, Response
 from jinja2 import Template, FileSystemLoader, Environment
