@@ -55,7 +55,7 @@ Los objetivos de la segunda entrega se concentraran en los que se ha visto en el
 - Waiting list mientras otros usuarios compran entradas
 - Introducir informacion de compra 
 
-## Entrega Final
+## ENTREGA FINAL
 Los objetivos de esta entrega final se concentra en los ultimos temas vistos en el curso de Estructuras de Datos en una pagina web de una promotora de festivales y eventos. 
 
 **Funcionalidades de la aplicacion**
@@ -88,9 +88,8 @@ En esta entrega no se implemento nada visual, unicamente se agregaron estructura
 
 **Resumen de estructuras:**
 1. Struct: Se implemento como una clase en pytho para almancenar la informacion del usuario como un objeto. 
-2. Arreglos: Los conciertos provienen de un archivo json, estos son cargados al backend en arreglos y son recorridos y manipulados. 
+2. Arreglos unidimensionales y multidimensionales: Los conciertos provienen de un archivo json, estos son cargados al backend en arreglos y son recorridos y manipulados. 
 3. Tree: Se almacena los conciertos en esta estructura para asi realizar inserciones y busquedas de manera mas eficiente al momento de utilizar informacion de los conciertos disponibles
 4. Queue: Estructura que se utiliza para la funcionalidad de lista de espera en la compra de entradas. 
 5. Stack: En esta estructura se almacenan los usuarios que ya han realizado la compra. 
 6. Graph: Se almacenan los usuarios que han comprado entradas y se vinculan con la respectiva localidad y festival, para asi mantener un control de los usuarios. 
-
