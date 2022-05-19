@@ -101,8 +101,6 @@ for i in range(len(usersExample)):
     usersDistribution.add_node(usersExample[i])
     usersDistribution.add_edge(festCodesExample[i], usersExample[i])
 
-print(usersDistribution.getAllRelations())
-
 
 @app.route('/', methods=["GET", "POST"])
 def landingPage():
@@ -148,7 +146,7 @@ def homePage(username):
 @app.route('/<username>/events', methods=["GET"])
 def concerts(username):
     concerts = getConcerts()
-    print(concerts)
+    concertsTree.inorder()
     return render_template('concertsPage.html', username=username, concerts=concerts, datestamps=datestamps)
 
 
@@ -159,7 +157,7 @@ def event(username, datestamp, id):
     date = datetime.fromtimestamp(
         selectedConcert['date']).strftime("%B %d, %Y")
     print(selectedConcert)
-    concertsTree.preorder()
+    concertsTree.inorder()
     return render_template('event.html', username=username, id=int(id), concert=selectedConcert, date=date)
 
 
@@ -270,5 +268,5 @@ def page_not_found(error):
 
 
 if __name__ == "__main__":
-    ##app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
+    # app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
     app.run(debug=True)

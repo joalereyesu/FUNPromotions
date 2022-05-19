@@ -93,3 +93,4 @@ En esta entrega no se implemento nada visual, unicamente se agregaron estructura
 4. Queue: Estructura que se utiliza para la funcionalidad de lista de espera en la compra de entradas. 
 5. Stack: En esta estructura se almacenan los usuarios que ya han realizado la compra. 
 6. Graph: Se almacenan los usuarios que han comprado entradas y se vinculan con la respectiva localidad y festival, para asi mantener un control de los usuarios. 
+7. 
